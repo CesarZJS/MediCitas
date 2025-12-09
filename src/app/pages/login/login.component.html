@@ -1,0 +1,23 @@
+<div class="login-container">
+  <h2>Iniciar Sesión</h2>
+
+  <form [formGroup]="formLogin" (ngSubmit)="ingresar()">
+
+    <label>Usuario</label>
+    <input type="text" formControlName="usuario" />
+
+    <div class="error" *ngIf="formLogin.get('usuario')?.invalid && formLogin.get('usuario')?.touched">
+      El usuario es obligatorio
+    </div>
+
+    <label>Contraseña</label>
+    <input type="password" formControlName="password" />
+
+    <div class="error" *ngIf="formLogin.get('password')?.invalid && formLogin.get('password')?.touched">
+      La contraseña debe tener mínimo 4 caracteres
+    </div>
+
+    <button type="submit" [disabled]="formLogin.invalid">Ingresar</button>
+  </form>
+</div>
+
