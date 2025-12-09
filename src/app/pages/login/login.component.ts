@@ -18,18 +18,19 @@ formLogin: FormGroup;
     private router: Router
   ) {
     this.formLogin = this.fb.group({
-      usuario: ['', Validators.required],
+      dni: ['', Validators.required],
       password: ['', [Validators.required, Validators.minLength(4)]]
     });
   }
+
   ngOnInit(): void {
-    throw new Error('Method not implemented.');
+    // No debe lanzar error
   }
 
-  ingresar() {
-    const { usuario, password } = this.formLogin.value;
+  login() {
+    const { dni, password } = this.formLogin.value;
 
-    if (this.auth.login(usuario, password)) {
+    if (this.auth.login(dni, password)) {
       this.router.navigate(['/home']);
     } else {
       alert('Credenciales incorrectas');

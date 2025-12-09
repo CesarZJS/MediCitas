@@ -1,0 +1,36 @@
+.navbar {
+  height: 70px;
+  background: white;
+  border-bottom: 1px solid #ddd;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 25px;
+  align-items: center;
+
+  .logo {
+    height: 45px;
+  }
+
+  .right {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    .avatar {
+      height: 40px;
+      width: 40px;
+      border-radius: 50%;
+    }
+
+    .user-name {
+      font-weight: 600;
+    }
+
+    .dot {
+      width: 10px;
+      height: 10px;
+      background: #2ecc71;
+      border-radius: 50%;
+    }
+  }
+}

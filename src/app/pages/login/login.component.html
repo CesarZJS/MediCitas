@@ -1,23 +1,40 @@
 <div class="login-container">
-  <h2>Iniciar Sesión</h2>
+  
+  <div class="left-panel">
+    <img src="assets/img/logeoimg.png" alt="Medicitas" class="left-img">
+  </div>
 
-  <form [formGroup]="formLogin" (ngSubmit)="ingresar()">
+  <div class="right-panel">
 
-    <label>Usuario</label>
-    <input type="text" formControlName="usuario" />
-
-    <div class="error" *ngIf="formLogin.get('usuario')?.invalid && formLogin.get('usuario')?.touched">
-      El usuario es obligatorio
+    <div class="header">
+      <span class="title">MEDICITAS</span>
+      <span class="subtitle">INICIAR SESIÓN</span>
     </div>
 
-    <label>Contraseña</label>
-    <input type="password" formControlName="password" />
+    <form [formGroup]="formLogin" (ngSubmit)="login()" class="login-form">
 
-    <div class="error" *ngIf="formLogin.get('password')?.invalid && formLogin.get('password')?.touched">
-      La contraseña debe tener mínimo 4 caracteres
-    </div>
+      <div class="input-group">
+        <i class="fa fa-user icon"></i>
+        <input type="text" placeholder="Ingresa DNI" formControlName="dni">
+      </div>
 
-    <button type="submit" [disabled]="formLogin.invalid">Ingresar</button>
-  </form>
+      <div class="input-group">
+        <i class="fa fa-lock icon"></i>
+        <input type="password" placeholder="Ingresa Contraseña" formControlName="password">
+      </div>
+
+      <div class="options">
+        <input type="checkbox">
+        <label>Recordarme</label>
+      </div>
+
+      <button type="submit" class="btn-login">
+        INGRESAR
+      </button>
+
+    </form>
+
+  </div>
+
 </div>
 

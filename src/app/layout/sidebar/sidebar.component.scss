@@ -1,0 +1,44 @@
+.sidebar {
+  width: 230px;
+  background: white;
+  border-right: 1px solid #ddd;
+  padding: 20px;
+
+  .title {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+
+  ul.menu {
+    list-style: none;
+    padding: 0;
+
+    > li {
+      margin-bottom: 15px;
+
+      span {
+        font-weight: 600;
+        font-size: 14px;
+        display: block;
+        color: #266dbb;
+        cursor: pointer;
+      }
+
+      ul {
+        margin-top: 5px;
+
+        li {
+          padding: 5px 10px;
+          cursor: pointer;
+          font-size: 13px;
+
+          &:hover {
+            background: #e7f3ff;
+            border-radius: 4px;
+          }
+        }
+      }
+    }
+  }
+}
