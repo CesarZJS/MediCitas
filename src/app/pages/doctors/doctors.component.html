@@ -1,0 +1,147 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<div class="doctors-container">
+  
+  <h2>Listado de Médicos</h2>
+
+  <!-- Filtros -->
+  <div class="filters">
+    <div class="filter-group">
+      <label>DNI</label>
+      <input type="text" [(ngModel)]="filterDni" placeholder="DNI">
+    </div>
+
+    <!-- <div class="filter-group">
+      <label>Nombres</label>
+      <input type="text" [(ngModel)]="filterName" placeholder="Nombres del Médico">
+    </div> -->
+
+    <div class="filter-group">
+      <label>Especialidad</label>
+      <select [(ngModel)]="filterSpecialty">
+        <option value="">Todas</option>
+        <option value="1">Cardiología</option>
+        <option value="2">Pediatría</option>
+        <option value="3">Medicina General</option>
+      </select>
+    </div>
+
+    <div class="filter-group">
+      <label>Estado</label>
+      <select [(ngModel)]="filterState">
+        <option value="">Todos</option>
+        <option value="active">Activo</option>
+        <option value="inactive">Inactivo</option>
+      </select>
+    </div>
+
+    <div class="filter-buttons">
+      <button class="btn-search" (click)="searchDoctors()"><i class="fas fa-search"></i> Buscar</button>
+      <button class="btn-add" (click)="openModal()"><i class="fas fa-plus"></i> Añadir</button>
+    </div>
+  </div>
+
+  <!-- Tabla -->
+  <table class="doctors-table">
+    <thead>
+      <tr>
+        <th>NRO</th>
+        <th>CMP</th>
+        <th>DNI</th>
+        <!-- <th>NOMBRES</th> -->
+        <th>ESPECIALIDAD</th>
+        <th>ESTADO</th>
+        <th>ACCIONES</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let doctor of filteredDoctors; let i = index">
+        <td>{{ i + 1 }}</td>
+        <td>{{ doctor.cmp }}</td>
+        <td>{{ doctor.dni }}</td>
+        <!-- <td>{{ doctor.name || 'N/A' }}</td> -->
+        <td>{{ getSpecialtyName(doctor.specialtyId) }}</td>
+        <td>
+          <span [class]="doctor.enabled ? 'status-active' : 'status-inactive'">
+            {{ doctor.enabled ? 'Activo' : 'Inactivo' }}
+          </span>
+        </td>
+        <td>
+          <button class="btn-edit" (click)="editDoctor(doctor.doctorId)"><i class="fas fa-edit"></i></button>
+          <button class="btn-delete" (click)="deleteDoctor(doctor.doctorId)"><i class="fas fa-trash"></i></button>
+        </td>
+      </tr>
+      <tr *ngIf="filteredDoctors.length === 0">
+        <td colspan="7" class="no-data">No hay doctores registrados</td>
+      </tr>
+    </tbody>
+  </table>
+
+
+
+
+</div>
+
+<!-- Modal -->
+<div class="modal-overlay" *ngIf="showModal" (click)="closeModal()">
+  <div class="modal-content" (click)="$event.stopPropagation()">
+    <div class="modal-header">
+      <h3>{{ isEditMode ? 'Editar Doctor' : 'Registrar Doctor' }}</h3>
+      <button class="btn-close" (click)="closeModal()">✕</button>
+    </div>
+
+    <div class="modal-body">
+      <div class="form-group">
+        <label>DNI</label>
+        <input type="text" [(ngModel)]="doctorForm.dni" placeholder="DNI">
+      </div>
+
+      <div class="form-group">
+        <label>CMP</label>
+        <input type="text" [(ngModel)]="doctorForm.cmp" placeholder="Código CMP">
+      </div>
+
+    <div class="form-group" *ngIf="!isEditMode">
+    <label>Nombre</label>
+    <input type="text" [(ngModel)]="doctorForm.name" placeholder="Nombre">
+    </div>
+
+    <div class="form-group" *ngIf="!isEditMode">
+    <label>Apellido Paterno</label>
+    <input type="text" [(ngModel)]="doctorForm.paternalSurname" placeholder="Apellido Paterno">
+    </div>
+
+    <div class="form-group" *ngIf="!isEditMode">
+    <label>Apellido Materno</label>
+    <input type="text" [(ngModel)]="doctorForm.maternalSurname" placeholder="Apellido Materno">
+    </div>
+
+    <div class="form-group" *ngIf="!isEditMode">
+    <label>Email</label>
+    <input type="email" [(ngModel)]="doctorForm.email" placeholder="correo@ejemplo.com">
+    </div>      
+
+      <div class="form-group">
+        <label>Especialidad</label>
+        <select [(ngModel)]="doctorForm.specialtyId">
+          <option value="">Seleccione</option>
+          <option value="1">Cardiología</option>
+          <option value="2">Pediatría</option>
+          <option value="3">Medicina General</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label>Estado</label>
+        <select [(ngModel)]="doctorForm.enabled">
+          <option [value]="true">Activo</option>
+          <option [value]="false">Inactivo</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="modal-footer">
+      <button class="btn-cancel" (click)="closeModal()">Cancelar</button>
+      <button class="btn-save" (click)="saveDoctor()">{{ isEditMode ? 'Actualizar' : 'Guardar' }}</button>
+    </div>
+  </div>
+</div>

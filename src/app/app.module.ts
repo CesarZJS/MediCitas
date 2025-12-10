@@ -11,6 +11,7 @@ import { LayoutComponent } from './layout/layout.component';
 import { NavbarComponent } from './layout/navbar/navbar.component';
 import { SidebarComponent } from './layout/sidebar/sidebar.component';
 import { SignupComponent } from './pages/signup/signup.component';
+import { DoctorsComponent } from './pages/doctors/doctors.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { SignupComponent } from './pages/signup/signup.component';
     LayoutComponent,
     NavbarComponent,
     SidebarComponent,
-    SignupComponent
+    SignupComponent,
+    DoctorsComponent
   ],
   imports: [
     BrowserModule,

@@ -42,3 +42,44 @@
     }
   }
 }
+
+
+.menu {
+  list-style: none;
+  padding: 0;
+  
+  li {
+    margin-bottom: 10px;
+    
+    span {
+      font-weight: bold;
+      color: #333;
+    }
+    
+    ul {
+      list-style: none;
+      padding-left: 20px;
+      margin-top: 5px;
+      
+      li {
+        margin-bottom: 5px;
+        color: #666;
+        cursor: pointer;
+        
+        &:hover {
+          color: #00bcd4;
+        }
+        
+        a {
+          color: #666;
+          text-decoration: none;
+          transition: color 0.3s;
+          
+          &:hover {
+            color: #00bcd4;
+          }
+        }
+      }
+    }
+  }
+}

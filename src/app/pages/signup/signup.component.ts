@@ -12,6 +12,7 @@ export class SignupComponent implements OnInit {
 
   formSignup: FormGroup;
 
+  
   constructor(
     private fb: FormBuilder,
     private auth: AuthService,
