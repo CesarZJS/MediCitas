@@ -12,6 +12,7 @@ import { NavbarComponent } from './layout/navbar/navbar.component';
 import { SidebarComponent } from './layout/sidebar/sidebar.component';
 import { SignupComponent } from './pages/signup/signup.component';
 import { DoctorsComponent } from './pages/doctors/doctors.component';
+import { ReservaCitasComponent } from './pages/reserva-citas/reserva-citas.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { DoctorsComponent } from './pages/doctors/doctors.component';
     SidebarComponent,
     SignupComponent,
     DoctorsComponent
+    ReservaCitasComponent
   ],
   imports: [
     BrowserModule,

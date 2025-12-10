@@ -5,6 +5,7 @@ import { SignupComponent } from './pages/signup/signup.component';
 import { DoctorsComponent } from './pages/doctors/doctors.component'; 
 import { RouterModule, Routes } from '@angular/router';
 import { LayoutComponent } from './layout/layout.component';
+import { ReservaCitasComponent } from './pages/reserva-citas/reserva-citas.component';
 
 const routes: Routes = [
   { 
@@ -13,6 +14,7 @@ const routes: Routes = [
     children: [
       { path: 'home', component: HomeComponent },
       { path: 'doctors', component: DoctorsComponent }  
+      { path: 'reserva-citas', component: ReservaCitasComponent }
     ]
   },
   { path: 'login', component: LoginComponent },
