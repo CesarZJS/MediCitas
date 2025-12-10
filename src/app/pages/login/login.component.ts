@@ -28,12 +28,23 @@ formLogin: FormGroup;
   }
 
   login() {
-    const { dni, password } = this.formLogin.value;
+  const { dni, password } = this.formLogin.value;
 
-    if (this.auth.login(dni, password)) {
-      this.router.navigate(['/home']);
-    } else {
+  this.auth.login(dni, password).subscribe({
+    next: (response) => {
+      if (response.code === 0) {
+        // Guardar datos del usuario
+        this.auth.saveToken(response.data);
+        // Navegar a home
+        this.router.navigate(['/home']);
+      } else {
+        alert('Error: ' + response.message);
+      }
+    },
+    error: (error) => {
+      console.error('Error en login:', error);
       alert('Credenciales incorrectas');
     }
+    });
   }
 }

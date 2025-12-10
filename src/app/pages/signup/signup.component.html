@@ -1,0 +1,58 @@
+<div class="signup-container">
+  
+  <div class="left-panel">
+    <img src="assets/img/logeoimg.png" alt="Medicitas" class="left-img">
+  </div>
+
+  <div class="right-panel">
+
+    <div class="header">
+      <span class="title">MEDICITAS</span>
+      <span class="subtitle">CREAR CUENTA</span>
+    </div>
+
+    <form [formGroup]="formSignup" (ngSubmit)="signup()" class="signup-form">
+
+      <div class="input-group">
+        <i class="fa fa-user icon"></i>
+        <input type="text" placeholder="Nombre" formControlName="name">
+      </div>
+
+      <div class="input-group">
+        <i class="fa fa-user icon"></i>
+        <input type="text" placeholder="Apellido Paterno" formControlName="paternalSurname">
+      </div>
+
+      <div class="input-group">
+        <i class="fa fa-user icon"></i>
+        <input type="text" placeholder="Apellido Materno" formControlName="maternalSurname">
+      </div>
+
+      <div class="input-group">
+        <i class="fa fa-id-card icon"></i>
+        <input type="text" placeholder="DNI" formControlName="dni">
+      </div>
+
+      <div class="input-group">
+        <i class="fa fa-envelope icon"></i>
+        <input type="email" placeholder="Correo Electrónico" formControlName="email">
+      </div>
+
+      <div class="input-group">
+        <i class="fa fa-lock icon"></i>
+        <input type="password" placeholder="Contraseña" formControlName="password">
+      </div>
+
+      <button type="submit" class="btn-signup">
+        REGISTRARSE
+      </button>
+
+      <div class="login-link">
+        <p>¿Ya tienes cuenta? <a routerLink="/login">Inicia sesión aquí</a></p>
+      </div>
+
+    </form>
+
+  </div>
+
+</div>

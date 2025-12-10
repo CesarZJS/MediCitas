@@ -111,3 +111,25 @@
     height: 60vh;
   }
 }
+
+.register-link {
+  text-align: center;
+  margin-top: 20px;
+  
+  p {
+    color: #666;
+    font-size: 14px;
+    
+    a {
+      color: #00bcd4;
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s;
+      
+      &:hover {
+        color: #008c9e;
+        text-decoration: underline;
+      }
+    }
+  }
+}
