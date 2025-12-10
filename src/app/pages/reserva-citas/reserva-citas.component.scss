@@ -1,0 +1,54 @@
+.reserva-container {
+  padding: 20px;
+
+  h2 {
+    margin-bottom: 15px;
+  }
+
+  .filters, .actions {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+    flex-wrap: wrap;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #fff;
+
+    th, td {
+      padding: 8px 12px;
+      border-bottom: 1px solid #ddd;
+      text-align: left;
+    }
+
+    tr:hover {
+      background: #f1f5f9;
+      cursor: pointer;
+    }
+
+    tr.selected {
+      background: #d0e8ff;
+    }
+  }
+
+  button {
+    padding: 6px 12px;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+    background: #02c6dd;
+    color: #fff;
+    font-weight: bold;
+
+    &:hover {
+      background: #019db2;
+    }
+
+    &:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+  }
+}

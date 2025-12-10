@@ -1,0 +1,53 @@
+<div class="reserva-container">
+
+  <h2>Reserva Citas</h2>
+
+  <!-- FILTROS -->
+  <div class="filters">
+    <input type="text" placeholder="DNI" [(ngModel)]="filtro.dni">
+    <input type="text" placeholder="Nombres del paciente" [(ngModel)]="filtro.nombres">
+    <select [(ngModel)]="filtro.especialidad">
+      <option value="">Elegir una especialidad</option>
+      <option *ngFor="let e of especialidades" [value]="e">{{e}}</option>
+    </select>
+    <input type="date" [(ngModel)]="filtro.fecha">
+    <button (click)="buscar()">Buscar</button>
+  </div>
+
+  <!-- BOTONES ACCIONES -->
+  <div class="actions">
+    <button (click)="nuevo()">Nuevo</button>
+    <button [disabled]="!selectedCita" (click)="editar()">Editar</button>
+    <button [disabled]="!selectedCita" (click)="detalle()">Detalle</button>
+    <button [disabled]="!selectedCita" (click)="anular()">Anular</button>
+  </div>
+
+  <!-- TABLA -->
+  <table>
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Fecha</th>
+        <th>OA Cita</th>
+        <th>Nombre Paciente</th>
+        <th>Nombre Médico</th>
+        <th>Especialidad</th>
+        <th>Estado</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let cita of citas; let i = index" 
+          [class.selected]="cita === selectedCita"
+          (click)="seleccionar(cita)">
+        <td>{{i + 1}}</td>
+        <td>{{cita.fecha}}</td>
+        <td>{{cita.oa}}</td>
+        <td>{{cita.nombrePaciente}}</td>
+        <td>{{cita.nombreMedico}}</td>
+        <td>{{cita.especialidad}}</td>
+        <td>{{cita.estado}}</td>
+      </tr>
+    </tbody>
+  </table>
+
+</div>
