@@ -22,7 +22,7 @@ import { ReservaCitasComponent } from './pages/reserva-citas/reserva-citas.compo
     NavbarComponent,
     SidebarComponent,
     SignupComponent,
-    DoctorsComponent
+    DoctorsComponent,
     ReservaCitasComponent
   ],
   imports: [
